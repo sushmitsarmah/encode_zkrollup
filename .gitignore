@@ -1,0 +1,13 @@
+docs
+.DS_Store
+
+*
+
+# But don't ignore directories, so we can examine their contents
+!*/
+
+# Don't ignore .zok files
+!*.zok
+
+!.gitignore
+!README.md

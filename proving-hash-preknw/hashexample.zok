@@ -1,0 +1,20 @@
+import "hashes/sha256/512bitPacked" as sha256packed;
+
+// https://zokrates.github.io/examples/sha256example.html#prove-knowledge-of-pre-image
+
+// We want to pass 512 bits of input to SHA256.
+// However, a field value can only hold 254 bits due to the size
+// of the underlying prime field we are using
+// Hence we use four field elements, each one encoding 128 bits
+
+// here it is computing the digest and also validating it against the digest of interest
+def main(private field a, private field b, private field c, private field d) {
+    field[2] h = sha256packed([a, b, c, d]);
+    assert(h[0] == 263561599766550617289250058199814760685);
+    assert(h[1] == 65303172752238645975888084098459749904);
+    return;
+}
+
+// when this is run - zokrates compute-witness -a 0 0 0 5
+// and proof generated with zokrates generate-proof
+// the proof will not contain any of the private fields
