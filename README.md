@@ -3,6 +3,7 @@ Zokrates commands to create proof
 1. Compile the zokrates file
 
         zokrates compile -i root.zok
+
 2. Run Setup
 
         zokrates setup
